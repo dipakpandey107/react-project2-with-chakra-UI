@@ -9,6 +9,7 @@ import {
   Button,
   useDisclosure,
   VStack,
+  HStack,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { BiMenuAltLeft } from 'react-icons/bi';
@@ -40,19 +41,36 @@ const Header = () => {
         </DrawerHeader>
         <DrawerBody>
             <VStack alignItems={'flex-start'}>
-            <Button variant={"ghost"} colorScheme={'purple'}>
+            <Button onClick={onClose} variant={"ghost"} colorScheme={'purple'}>
                 <Link to={'/'}>Home</Link>
             </Button>
-            <Button variant={"ghost"} colorScheme={'purple'}>
+            <Button onClick={onClose} variant={"ghost"} colorScheme={'purple'}>
                 <Link to={'/video'}>Video</Link>
             </Button>
-            <Button variant={"ghost"} colorScheme={'purple'}>
+            <Button onClick={onClose} variant={"ghost"} colorScheme={'purple'}>
                 <Link to={'/video?category=free'}>Free Video</Link>
             </Button>
-            <Button variant={"ghost"} colorScheme={'purple'}>
+            <Button onClick={onClose} variant={"ghost"} colorScheme={'purple'}>
                 <Link to={'/upload'}>Upload Video</Link>
             </Button>
             </VStack>
+
+
+            <HStack pos={"absolute"}
+             bottom={"10"} 
+             left={"0"}
+             //bgColor={'red'}
+             w={'full'}
+             justifyContent={'space-evenly'} 
+
+             >
+                <Button  colorScheme={'purple'}>
+                    <Link to={"/login"}>Log In</Link>
+                </Button>
+                <Button   colorScheme={'purple'} variant={'outline'}>
+                    <Link to={"/signup"}>Sign Up</Link>
+                </Button>
+            </HStack>
         </DrawerBody>
         </DrawerContent>
       </Drawer>
